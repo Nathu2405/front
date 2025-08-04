@@ -9,7 +9,7 @@ function choosePlayer(name) {
 }
 
 function startGame() {
-    fetch('http://localhost:8080/game/start-game')
+    fetch('https://test-lrb6.onrender.com/game/start-game')
         .then(response => response.text())
         .then(data => {
             document.getElementById('response').textContent = data;
@@ -198,4 +198,5 @@ function loadCurrentPlayer(){
             console.error("Error loading current player: ", error);
         });
 }
+
 
