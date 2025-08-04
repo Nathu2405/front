@@ -23,7 +23,7 @@ function startGame() {
 }
 
 function loadHand() {
-    fetch("http://localhost:8080/game/current-player")
+    fetch("https://test-lrb6.onrender.com/game/current-player")
         .then(response => response.text())
         .then(current => {
             const cardContainer = document.getElementById("cardContainer");
@@ -82,7 +82,7 @@ function loadHand() {
 }
 
 function drawCard() {
-    fetch('http://localhost:8080/game/current-player')
+    fetch('https://test-lrb6.onrender.com/game/current-player')
         .then(response => response.text())
         .then(current => {
             if(current === playerName) {
@@ -129,7 +129,7 @@ function playCard() {
         return;
     }
 
-    fetch("http://localhost:8080/game/current-player")
+    fetch("https://test-lrb6.onrender.com/game/current-player")
         .then(response => response.text())
         .then(current => {
             if (current !== playerName) {
@@ -137,7 +137,7 @@ function playCard() {
                 return;
             }
 
-            const url = `http://localhost:8080/game/play?color=${color}&value=${value}`;
+            const url = `https://test-lrb6.onrender.com/game/play?color=${color}&value=${value}`;
 
             fetch(url, { method: "POST" })
                 .then(response => response.text())
@@ -154,7 +154,7 @@ function playCard() {
                     document.getElementById("playResult").textContent = "Error: " + error;
                 });
         });
-        fetch("http://localhost:8080/game/winner")
+        fetch("https://test-lrb6.onrender.com/game/winner")
             .then(response => response.text())
             .then(msg => {
                 document.getElementById("winnerDisplay").textContent = msg;
@@ -162,7 +162,7 @@ function playCard() {
 }
 
 function endTurn() {
-    fetch('http://localhost:8080/game/end-turn')
+    fetch('https://test-lrb6.onrender.com/game/end-turn')
         .then(response => response.text())
         .then(message => {
             document.getElementById('response').textContent = message;
@@ -177,7 +177,7 @@ function endTurn() {
 }
 
 function loadTopCard() {
-    fetch('http://localhost:8080/game/top-card')
+    fetch('https://test-lrb6.onrender.com/game/top-card')
         .then(response => response.text())
         .then(data => {
             document.getElementById('topCardDisplay').textContent = "Top Card: " + data;
@@ -189,7 +189,7 @@ function loadTopCard() {
 }
 
 function loadCurrentPlayer(){
-    fetch('http://localhost:8080/game/current-player')
+    fetch('https://test-lrb6.onrender.com/game/current-player')
         .then(response => response.text())
         .then(name => {
             document.getElementById('currentPlayer').textContent = "Current Player: " + name;
@@ -198,5 +198,6 @@ function loadCurrentPlayer(){
             console.error("Error loading current player: ", error);
         });
 }
+
 
 
