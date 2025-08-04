@@ -1,0 +1,46 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>UNO</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <h1>UNO Game</h1>
+        <div id="winnerDisplay"></div>
+
+        <p id="playerLabel">Choose your player: </p>
+        <button onclick="choosePlayer('Player 1')">Player 1</button>
+        <button onclick="choosePlayer('Player 2')">Player 2</button>
+
+        <div id="currentPlayer"></div>
+
+        <h2>Draw/Start</h2>
+        <button onclick = "startGame()">Start Game</button>
+        <div id="response"></div>
+
+        <hr>
+
+        <h2>Your Hand: </h2>
+        <div id="cardContainer"></div>
+
+        <h2>Play Card:</h2>
+        <label for="playColor"></label><input id="playColor" placeholder="Color"/>
+        <label for="playValue"></label><input id="playValue" placeholder="Value"/>
+        <button onclick="playCard()">Play</button>
+        <div id="playResult"></div>
+
+        <button onclick="drawCard()">Draw Card</button>
+        <div id="drawResult"></div>
+
+        <hr>
+
+        <h2>Top Card</h2>
+        <button onclick="loadTopCard()">Show Top Card</button>
+        <div id="topCardDisplay" class="card-container"></div>
+
+        <hr>
+
+        <script src="script.js"></script>
+    </body>
+</html>
